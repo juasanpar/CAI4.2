@@ -1,0 +1,18 @@
+1. Se ejecuta server.py
+2. Se ejecuta attacker.py
+3. Se ejecuta client.py
+
+Client.py te pide que pongas primero el tipo de mensaje que quieres recibir
+(cifra y autentica, cifra y luego autentica y auntentica y cifra). Después
+te pide el tamaño de clave RSA que quieres que use el server.
+
+Cuando el client manda el handshake, un atacante hace un MITM y cambia el número
+de bits de la clave RSA que va a usar el servidor y reenvía el mensaje a este.
+
+El servidor recibe el tipo de mensaje a enviar y el número de bits, solo que 
+cambiado por el atancante a una cantidad menor, por lo que se ha hecho un downgrade 
+del cifrado del mensaje. Se escribe un mensaje a enviar y el servidor lo manda.
+
+El atacante recibe el mensaje cifrado, solo que en vez de ser un mensaje de 2048 bits 
+es uno de 1024, mucho más fácil de romper. El cliente recibe el mensaje y lo descifra 
+normalmente.

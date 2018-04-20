@@ -1,0 +1,9 @@
+1. Se ejecuta server.py
+2. Se ejecuta attacker.py
+3. Se ejecuta client.py
+
+En client.py se selecciona el tipo de mensaje que quiere que se envíe.
+
+Después, el atacante intercepta la comunicación, y cuando el servidor envía el
+mensaje cifrado con AES-CBC, el atacante lo descifra utilizando el ataque Padding
+Oracle. El cliente recibe el mensaje y lo descifra usando la clave de forma normal
